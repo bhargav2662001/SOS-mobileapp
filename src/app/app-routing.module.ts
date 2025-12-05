@@ -1,16 +1,26 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [
+import {Routes} from "@angular/router";
+import { LoginUiComponent } from "./auth/login-ui/login-ui.component";
+ 
+export const appRoutes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: "",
+    redirectTo: "/login",
+    pathMatch: "full"
+  },
+   // Wildcard route for a 404 page
+  // { path: '**', redirectTo: 'login' },
+  
+  {
+    path: "login",
+    loadChildren: () => import("./login/login.module").then(m => m.LoginModule)
+  },
+  {
+    path: "auth",
+    children: [
+      {
+        path: "login-ui",
+        component: LoginUiComponent
+      }
+    ]
   }
 ];
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}

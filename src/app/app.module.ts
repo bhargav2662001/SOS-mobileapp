@@ -1,16 +1,44 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {IonicModule, IonicRouteStrategy} from "@ionic/angular";
+import {AppComponent} from "./app.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import {RouterModule, RouteReuseStrategy, PreloadAllModules} from "@angular/router";
+import { appRoutes } from "./app-routing.module";
+import { LoginModule } from "./login/login.module";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+// import { PlatformService } from "./shared/services/platform.service";
 
+
+ 
+ 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  declarations: [
+    AppComponent
+  ],
+ 
+  imports: [
+    BrowserModule,
+    CommonModule,
+    IonicModule.forRoot(),
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules, useHash: true}),
+    FormsModule,
+    ReactiveFormsModule,
+    LoginModule,
+    IonicModule
+    
+   
+  ],
+ 
+  providers: [
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    provideHttpClient(withInterceptorsFromDi()),
+    ScreenOrientation
+  ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule { }
