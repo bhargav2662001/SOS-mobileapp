@@ -1,3 +1,42 @@
-<p>
-  login-ui works!
-</p>
+<!-- <div class="container">
+
+
+
+  <div class="login-screen">
+    <div class="logo">🚨</div>
+    <div class="app-title">RescueNet</div>
+    <div class="app-subtitle">Decentralized Emergency Response</div>
+
+    <div class="input-group">
+      <input type="email" placeholder="Email Address">
+    </div>
+    <div class="input-group">
+      <input type="password" placeholder="Password">
+    </div>
+
+    <button class="btn-primary">Sign In</button>
+
+    <div class="link-text">Don't have an account? <strong>Sign Up</strong></div>
+  </div>
+</div> -->
+
+
+<div class="login-container">
+  <div class="login-screen">
+    <div class="logo">🚨</div>
+    <div class="app-title">RescueNet</div>
+    <div class="app-subtitle">Decentralized Emergency Response</div>
+
+    <div class="input-group">
+      <input type="email" placeholder="Email Address">
+    </div>
+
+    <div class="input-group">
+      <input type="password" placeholder="Password">
+    </div>
+
+    <button class="btn-primary" (click)="login()">Sign In</button>
+
+    <div class="link-text">Don't have an account? <strong (click)="goToRegister()">Sign Up</strong></div>
+  </div>
+</div>

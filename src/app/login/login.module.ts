@@ -30,7 +30,8 @@ import { LandingPageComponent } from "../landing-page/landing-page.component";
     NgClass
   ],
   exports: [
-    LoginUiComponent
+    LoginUiComponent,
+    RegisterComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
