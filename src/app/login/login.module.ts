@@ -10,6 +10,8 @@ import { AuthComponent } from "../auth/auth.component";
 import { LoginUiComponent } from "../auth/login-ui/login-ui.component";
 import { RegisterComponent } from "../auth/register/register.component";
 import { LandingPageComponent } from "../landing-page/landing-page.component";
+import { Auth } from "../services/auth";
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { LandingPageComponent } from "../landing-page/landing-page.component";
     LoginUiComponent,
     RegisterComponent,
     LandingPageComponent,
+    // Auth
 
   ],
   imports: [
@@ -27,7 +30,8 @@ import { LandingPageComponent } from "../landing-page/landing-page.component";
     FormsModule,
     ReactiveFormsModule,
     LoginPageRoutingModule,
-    NgClass
+    NgClass,
+    
   ],
   exports: [
     LoginUiComponent,

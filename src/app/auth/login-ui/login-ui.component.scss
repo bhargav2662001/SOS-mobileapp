@@ -99,3 +99,26 @@
     font-size: 14px;
 }
 
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+.password-group {
+  position: relative;
+}
+
+.password-group input {
+  width: 100%;
+  padding-right: 45px;     // ✅ space for eye icon
+  border-radius: 12px;     // ✅ keep rounded corners
+  box-sizing: border-box;
+}
+.input-group.password-group > input {
+  border-top-right-radius: 14px !important;
+  border-bottom-right-radius: 14px !important;
+}

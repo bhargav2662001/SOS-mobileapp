@@ -3,7 +3,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {IonicModule, IonicRouteStrategy} from "@ionic/angular";
 import {AppComponent} from "./app.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 
 import {RouterModule, RouteReuseStrategy, PreloadAllModules} from "@angular/router";
@@ -28,7 +28,8 @@ import { LoginModule } from "./login/login.module";
     FormsModule,
     ReactiveFormsModule,
     LoginModule,
-    IonicModule
+    IonicModule,
+    HttpClientModule
     
    
   ],

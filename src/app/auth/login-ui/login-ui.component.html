@@ -28,15 +28,32 @@
     <div class="app-subtitle">Decentralized Emergency Response</div>
 
     <div class="input-group">
-      <input type="email" placeholder="Email Address">
+      <input type="email" placeholder="Email Address" [(ngModel)]="loginData.email" name="email" />
     </div>
 
-    <div class="input-group">
-      <input type="password" placeholder="Password">
+   <div class="input-group password-group">
+  <input
+    [type]="showPassword ? 'text' : 'password'"
+    placeholder="Password"
+    [(ngModel)]="loginData.password"
+    name="password"
+  />
+
+  <span class="eye-icon" (click)="togglePassword()">
+    {{ showPassword ? '👁️' : '🙈' }}
+  </span>
+</div>
+
+
+    <button class="btn-primary" (click)="loginpage()" [disabled]="loading">
+      {{ loading ? 'Signing In...' : 'Sign In' }}
+    </button>
+
+    <p *ngIf="errorMsg" style="color:red">{{ errorMsg }}</p>
+
+    <div class="link-text">
+      Don't have an account?
+      <strong (click)="goToRegister()">Sign Up</strong>
     </div>
-
-    <button class="btn-primary" (click)="login()">Sign In</button>
-
-    <div class="link-text">Don't have an account? <strong (click)="goToRegister()">Sign Up</strong></div>
   </div>
 </div>

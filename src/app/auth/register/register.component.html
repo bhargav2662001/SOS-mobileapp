@@ -5,27 +5,35 @@
     <div class="app-subtitle">Decentralized Emergency Response</div>
 
     <div class="input-group">
-      <input type="email" placeholder="Email Address">
+      <input type="email" placeholder="Email Address" [(ngModel)]="registerData.email" name="email" />
     </div>
 
     <div class="input-group">
-      <input type="text" placeholder="Full Name">
-    </div>
-    <div class="input-group">
-      <input type="text" placeholder="Username">
+      <input type="text" placeholder="Full Name" [(ngModel)]="registerData.fullName" name="fullName" />
     </div>
 
     <div class="input-group">
-      <input type="text" placeholder="Phone Number">
+      <input type="text" placeholder="Username" [(ngModel)]="registerData.username" name="username" />
     </div>
 
     <div class="input-group">
-      <input type="password" placeholder="Password">
+      <input type="text" placeholder="Phone Number" [(ngModel)]="registerData.phoneNumber" name="phoneNumber" />
     </div>
 
+    <div class="input-group">
+      <input type="password" placeholder="Password" [(ngModel)]="registerData.password" name="password" />
+    </div>
 
-    <button class="btn-primary">Sign Up</button>
+    <button class="btn-primary" (click)="register()" [disabled]="loading">
+      {{ loading ? 'Signing Up...' : 'Sign Up' }}
+    </button>
 
-    <div class="link-text">Already have an account? <strong (click)="goTologin()">Login</strong></div>
+    <p *ngIf="errorMsg" style="color:red">{{ errorMsg }}</p>
+    <p *ngIf="successMsg" style="color:green">{{ successMsg }}</p>
+
+    <div class="link-text">
+      Already have an account?
+      <strong (click)="goTologin()">Login</strong>
+    </div>
   </div>
 </div>
