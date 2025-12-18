@@ -19,7 +19,7 @@ export interface LoginRequest {
   providedIn: 'root',
 })
 export class Auth {
-  private apiUrl = 'http://127.0.1.1:8086/api/auth';
+  private apiUrl = 'http://localhost:8086/api/auth';
 
   constructor(private http: HttpClient) {}
 

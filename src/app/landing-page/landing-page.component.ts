@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
   standalone:false
 })
 export class LandingPageComponent  implements OnInit {
-
+ username = '';
+  fullName = '';
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+      const token = localStorage.getItem('token');
 
-}
+      if (token) {
+        const payload = token.split('.')[1];
+        const decoded = JSON.parse(atob(payload));
+
+        // Prefer fullName, fallback to username
+        this.fullName = decoded.fullName;
+        this.username = decoded.username;
+      }
+    }
+  }
